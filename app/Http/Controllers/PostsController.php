@@ -15,7 +15,7 @@ class PostsController extends Controller
     public function index()
     {
 //        $posts = Post::select('id', 'title', 'content')->orderBY('id', 'desc')->get();
-        $posts = Post::select('id', 'title', 'content')->orderBy('id', 'desc')->paginate(4);
+        $posts = Post::select('id', 'title', 'content')->orderBy('id', 'desc')->paginate(5);
         return view('posts.index')->with([
             'title' => 'App',
             'posts' => $posts

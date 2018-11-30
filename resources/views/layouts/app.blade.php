@@ -38,8 +38,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.min.js"></script>
 <script>
 
-
-
     $(document).on('click', '#btn-submit', function() {
         swal({
             title: 'Are you sure?',
@@ -58,8 +56,18 @@
 
     $(document).on('click', '#btn-add', function () {
         swal(
-            'Good job!',
-            'You clicked the button!',
+            'Added!',
+            '',
+            'success'
+        ).then((result) => {
+            $('.align-self-center').submit();
+        })
+    })
+
+    $(document).on('click', '#btn-update', function () {
+        swal(
+            'Updated!',
+            '',
             'success'
         ).then((result) => {
             $('.align-self-center').submit();

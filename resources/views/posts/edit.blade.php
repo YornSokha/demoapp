@@ -6,7 +6,8 @@
 
 
 @section('content')
-    {{ Form::open(array('url' => '/posts/' .$post->id,'method' => 'put'))}}
+    <div>
+        {{ Form::open(array('url' => '/posts/' .$post->id, 'class' => 'align-self-center','method' => 'put'))}}
         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
         <div class="form-group">
             <label for="inputTitle">Title</label>
@@ -16,9 +17,12 @@
             <label for="inputContent">Content</label>
             <input type="text" class="form-control" name="content" id="inputContent" value="{{$post->content}}" placeholder="Enter Content" required><br/>
         </div>
-        <button type="submit" class="btn btn-info" onclick="updatedAlert()">Update</button>
+        <span class="btn btn-info" id="btn-update">Update</span>
+        {{--<button type="submit" class="btn btn-info" onclick="updatedAlert()">Update</button>--}}
         <a href="/posts" class="btn btn-link">Back</a>
-    {{ Form::close() }}
+        {{ Form::close() }}
+    </div>
+
 @stop
 
 @section('footer')

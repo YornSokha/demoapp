@@ -15,32 +15,33 @@
             {{--</form>--}}
         </nav>
     </div>
-
-    <table  class="table table-success">
-        <thead>
+    <div class="justify-content-md-center">
+        <table  class="table table-success">
+            <thead>
             <tr>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Action</th>
+                <th class="col col-md-2">Title</th>
+                <th class="col col-md-auto">Content</th>
+                <th class="col col-md-2">Action</th>
             </tr>
-        </thead>
-        <tbody>
-        @foreach($posts as $post)
+            </thead>
+            <tbody>
+            @foreach($posts as $post)
 
-            <tr>
-                <td>{{$post->title}}</td>
-                <td>{{$post->content}}</td>
-                <td >
-                    <a href="{{url('/posts/' .$post->id .'/edit')}}" class="btn btn-success">Edit</a>
-                    {{Form::open(array('url' => '/posts/' .$post->id,'class' =>'form-inline', 'method' => 'delete'))}}
-                    <span class="btn btn-danger" id="btn-submit" >Delete</span>
-                    {{Form::close()}}
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
-    <div class="row align-content-center">
+                <tr>
+                    <td>{{$post->title}}</td>
+                    <td>{{$post->content}}</td>
+                    <td class="form-inline ">
+                        <a href="{{url('/posts/' .$post->id .'/edit')}}" class="btn btn-success mr-md-2">Edit</a>
+                        {{Form::open(array('url' => '/posts/' .$post->id,'class' =>'form-inline', 'method' => 'delete'))}}
+                        <span class="btn btn-danger" id="btn-submit" >Delete</span>
+                        {{Form::close()}}
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
+    <div class="justify-content-md-center">
         <div class="col-md-12 align-center-custom">
             {{ $posts->links() }}
         </div>
