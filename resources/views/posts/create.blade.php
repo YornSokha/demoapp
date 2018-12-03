@@ -13,8 +13,7 @@
             <label for="inputContent">Content</label>
             <input type="text" class="form-control" name="content" id="inputContent" placeholder="Enter Content" required><br/>
         </div>
-        <span class="btn btn-primary" id="btn-add">Add</span>
-        {{--<button type="submit" class="btn btn-primary">Add</button>--}}
+        <button type="submit" class="btn btn-primary">Add</button>
         <a href="/posts" class="btn btn-dark">Back</a>
         {{Form::close()}}
     </div>

@@ -19,7 +19,7 @@
         </div>
         <span class="btn btn-info" id="btn-update">Update</span>
         {{--<button type="submit" class="btn btn-info" onclick="updatedAlert()">Update</button>--}}
-        <a href="/posts" class="btn btn-link">Back</a>
+        <a href="/posts" class="btn btn-dark">Back</a>
         {{ Form::close() }}
     </div>
 

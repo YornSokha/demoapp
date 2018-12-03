@@ -12,13 +12,17 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-//        $posts = Post::select('id', 'title', 'content')->orderBY('id', 'desc')->get();
-        $posts = Post::select('id', 'title', 'content')->orderBy('id', 'desc')->paginate(5);
+        if($request->search){
+            $posts = Post::where('title','like', '%'. $request->search .'%');
+        }else {
+            $posts = new Post;
+        }
+
         return view('posts.index')->with([
-            'title' => 'App',
-            'posts' => $posts
+            'title' => 'APP',
+            'posts' => $posts->orderBy('id', 'desc')->paginate(10)
         ]);
     }
 
@@ -31,7 +35,7 @@ class PostsController extends Controller
     {
         //
         return view('posts.create')->with([
-            'title' => 'Create'
+            'title' => 'CREATE'
         ]);
     }
 
@@ -68,8 +72,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        return view('posts.edit')->with([
-            'title' => 'Edit',
+        return view('posts.update')->with([
+            'title' => 'UPDATE',
             'post' => Post::find($id)
         ]);
     }
@@ -99,6 +103,7 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
+
         Post::destroy($id);
         return redirect()->back();
     }

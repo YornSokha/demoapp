@@ -8,13 +8,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.min.css">
-    <link rel="stylesheet" href="/public/css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
     <title>Document</title>
 </head>
 <body>
 <div>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark navbar-fixed">
+        <a class="navbar-brand" href="/"><img src="/images/camsolution.png" class="img-home" alt=""></a>
+    </nav>
     <div class="jumbotron">
-            <h1>{{$title}}</h1>
+        <div class="jumbotron-height"></div>
+        {{--<p class="sub-title animated bounceInRight text-center">Share your problems with us to get right solutions for your  business.</p>--}}
+        <h1 class="sub-title animated bounceInLeft text-center">{{$title}}</h1>
+        <hr class="style-eight sub-title animated bounceInRight">
     </div>
 
 </div>
@@ -38,7 +45,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.min.js"></script>
 <script>
 
-    $(document).on('click', '#btn-submit', function() {
+    $(document).on('click', '#btn-delete', function() {
+        var _this = $(this);
         swal({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -49,20 +57,21 @@
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.value) {
-                $('.form-inline').submit();
+                _this.closest('.form-inline').submit();
+                // $('.form-inline').submit();
             }
         })
     })
 
-    $(document).on('click', '#btn-add', function () {
-        swal(
-            'Added!',
-            '',
-            'success'
-        ).then((result) => {
-            $('.align-self-center').submit();
-        })
-    })
+    // $(document).on('click', '#btn-add', function () {
+    //     swal(
+    //         'Added!',
+    //         '',
+    //         'success'
+    //     ).then((result) => {
+    //         $('.align-self-center').submit();
+    //     })
+    // })
 
     $(document).on('click', '#btn-update', function () {
         swal(
